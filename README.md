@@ -11,7 +11,7 @@ To use the JSON to Flat Converter, you need to have Python installed on your sys
 2. Press Ctrl+D on Unix/Linux or Ctrl+Z followed by Enter on Windows to finish inputting the JSON data.
 3. The script will process the JSON input and output the flattened key-value pairs.
 
-##output
+## output
 ```
 auditing.enabled = true
 auditing.file_name = "audit-{Date}.txt"
