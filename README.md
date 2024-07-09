@@ -11,6 +11,72 @@ To use the JSON to Flat Converter, you need to have Python installed on your sys
 2. Press Ctrl+D on Unix/Linux or Ctrl+Z followed by Enter on Windows to finish inputting the JSON data.
 3. The script will process the JSON input and output the flattened key-value pairs.
 
+## Input
+```
+{
+  "host_id": "",
+
+  "host_name": "My instance of the IIS Administration API",
+
+  "logging": {
+    "enabled": true,
+    "file_name": "log-{Date}.txt",
+    "min_level": "Error",
+    "path": null
+  },
+
+  "auditing": {
+    "enabled": true,
+    "file_name": "audit-{Date}.txt",
+    "path": null
+  },
+
+  "security": {
+    "require_windows_authentication": true,
+    "users": {
+      "administrators": [
+      ],
+      "owners": [
+      ]
+    },
+    "access_policy": {
+      "api": {
+        "users": "administrators",
+        "access_key": true
+      },
+      "api_keys": {
+        "users": "administrators",
+        "access_key": false
+      },
+      "system": {
+        "users": "owners",
+        "access_key": true
+      }
+    }
+  },
+
+  "cors": {
+    "rules": [
+      {
+        "origin": "https://contoso.com",
+        "allow": true
+      }
+    ]
+  },
+
+  "files": {
+    "locations": [
+      {
+        "alias": "inetpub",
+        "path": "%systemdrive%\\inetpub",
+        "claims": [
+          "read"
+        ]
+      }
+    ]
+  }
+}
+```
 ## output
 ```
 auditing.enabled = true
