@@ -1,15 +1,15 @@
 import json
 import sys
 
-def flatten_json(data, prefix=''):
+def json_to_flat_converter(data, prefix=''):
     result = {}
     if isinstance(data, dict):
         for key, value in data.items():
-            result.update(flatten_json(value, f"{prefix}{key}."))
+            result.update(json_to_flat_converter(value, f"{prefix}{key}."))
     elif isinstance(data, list):
         for item in data:
             if isinstance(item, (dict, list)):
-                result.update(flatten_json(item, f"{prefix}"))
+                result.update(json_to_flat_converter(item, f"{prefix}"))
             else:
                 result[f"{prefix[:-1]}"] = item
     else:
@@ -36,7 +36,7 @@ def main():
 
     try:
         data = json.loads(json_input)
-        flattened = flatten_json(data)
+        flattened = json_to_flat_converter(data)
         for key, value in sorted(flattened.items()):
             print(f"{key} = {json.dumps(value)}")
         sys.stdout.flush()  # Flush the output buffer
