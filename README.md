@@ -52,7 +52,8 @@ First, check your Linux distribution and install the necessary components.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/json-flattener.git
+   git clone https://github.com/NisaargPendal/json_to_flat_converter.git
+   
    cd json-flattener
    ```
 
