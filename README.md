@@ -1,105 +1,99 @@
-# JSON to Flat Converter
+# JSON Flattener
 
-## Introduction
-The JSON to Flat Converter is a Python script designed to flatten a hierarchical JSON structure into a flat, key-value format. This can be useful when working with complex JSON data and needing to access the values more easily.
+A web application that flattens nested JSON structures. Built with Flask and JavaScript.
 
-## Installation
-To use the JSON to Flat Converter, you need to have Python installed on your system. You can download Python from the [official website](https://www.python.org/downloads/). Once you have Python installed, you can download or clone the repository containing the script.
+## Project Structure
+
+json-flattener/
+- app.py
+- requirements.txt
+- templates/
+  - index.html
+
+
+## Setup
+
+### Linux Setup
+
+First, check your Linux distribution and install the necessary components.
+
+1. Check your Linux distribution:
+   ```bash
+   cat /etc/os-release
+   ```
+
+2. Based on your distribution, follow the appropriate instructions:
+
+   Ubuntu/Debian:
+   ```bash
+   sudo apt update
+   sudo apt install python3 python3-venv python3-pip
+   ```
+
+   Arch Linux:
+   ```bash
+   sudo pacman -Syu
+   sudo pacman -S python python-pip
+   ```
+
+   Fedora:
+   ```bash
+   sudo dnf update
+   sudo dnf install python3 python3-pip
+   ```
+
+   CentOS/RHEL:
+   ```bash
+   sudo yum update
+   sudo yum install python3 python3-pip
+   ```
+
+### Project Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/json-flattener.git
+   cd json-flattener
+   ```
+
+2. Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   ```
+
+3. Activate the virtual environment:
+   ```bash
+   source venv/bin/activate
+   ```
+
+4. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Running the Application
+
+1. Ensure you're in the project directory and your virtual environment is activated.
+
+2. Run the Flask application:
+   ```
+   python3 app.py
+   ```
+
+3. Open a web browser and navigate to `http://127.0.0.1:5000/`.
 
 ## Usage
-1. Open a text editor and paste your JSON input.
-2. Press Ctrl+D on Unix/Linux or Ctrl+Z followed by Enter on Windows to finish inputting the JSON data.
-3. The script will process the JSON input and output the flattened key-value pairs.
 
-## Input
-```
-{
-  "host_id": "",
+1. Enter your nested JSON in the "Input JSON" textarea.
+2. Click the "Flatten JSON" button.
+3. The flattened JSON will appear in the "Flattened Output" section.
+4. Use the "Copy" button to copy the flattened JSON to your clipboard.
 
-  "host_name": "My instance of the IIS Administration API",
-
-  "logging": {
-    "enabled": true,
-    "file_name": "log-{Date}.txt",
-    "min_level": "Error",
-    "path": null
-  },
-
-  "auditing": {
-    "enabled": true,
-    "file_name": "audit-{Date}.txt",
-    "path": null
-  },
-
-  "security": {
-    "require_windows_authentication": true,
-    "users": {
-      "administrators": [
-      ],
-      "owners": [
-      ]
-    },
-    "access_policy": {
-      "api": {
-        "users": "administrators",
-        "access_key": true
-      },
-      "api_keys": {
-        "users": "administrators",
-        "access_key": false
-      },
-      "system": {
-        "users": "owners",
-        "access_key": true
-      }
-    }
-  },
-
-  "cors": {
-    "rules": [
-      {
-        "origin": "https://contoso.com",
-        "allow": true
-      }
-    ]
-  },
-
-  "files": {
-    "locations": [
-      {
-        "alias": "inetpub",
-        "path": "%systemdrive%\\inetpub",
-        "claims": [
-          "read"
-        ]
-      }
-    ]
-  }
-}
-```
-## output
-```
-auditing.enabled = true
-auditing.file_name = "audit-{Date}.txt"
-auditing.path = null
-cors.rules.allow = true
-cors.rules.origin = "https://contoso.com"
-files.locations.alias = "inetpub"
-files.locations.claims = "read"
-files.locations.path = "%systemdrive%\\inetpub"
-host_id = ""
-host_name = "My instance of the IIS Administration API"
-logging.enabled = true
-logging.file_name = "log-{Date}.txt"
-logging.min_level = "Error"
-logging.path = null
-security.access_policy.api.access_key = true
-security.access_policy.api.users = "administrators"
-security.access_policy.api_keys.access_key = false
-security.access_policy.api_keys.users = "administrators"
-security.access_policy.system.access_key = true
-security.access_policy.system.users = "owners"
-security.require_windows_authentication = true
-```
 ## Contributing
-If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request on the GitHub repository.
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Contact
+
+Created by Nisarg Pendal - feel free to contact me at nisargpendal@gmail.com!
+```
