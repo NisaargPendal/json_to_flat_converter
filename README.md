@@ -96,4 +96,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Contact
 
 Created by Nisarg Pendal - feel free to contact me at nisargpendal@gmail.com!
-```
