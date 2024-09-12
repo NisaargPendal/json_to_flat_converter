@@ -28,7 +28,7 @@ A Flask web application that converts nested JSON structures into a flat key-val
    
    **Change the directory to :**
     ```
-    cd json-to-flat-converter
+    cd json_to_flat_converter
     ```
 2. **Create a virtual environment:**
     ```
