@@ -47,6 +47,10 @@ A Flask web application that converts nested JSON structures into a flat key-val
      ```
     pip install flask
     ```
+5. **Run Script :**
+   ```
+   python3 app.py
+   ```
 ## 🖥️ Usage
 
 1. **Run the Flask application:**
