@@ -1,99 +1,127 @@
-# JSON Flattener
+# JSON to Flat Converter
 
-A web application that flattens nested JSON structures. Built with Flask and JavaScript.
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Flask](https://img.shields.io/badge/Flask-2.0%2B-green)
 
-## Project Structure
+A Flask web application that converts nested JSON structures into a flat key-value format.
 
-json-flattener/
-- app.py
-- requirements.txt
-- templates/
-  - index.html
+## 📋 Table of Contents
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Troubleshooting](#-troubleshooting)
+- [Code Explanation](#-code-explanation)
+- [Contributing](#-contributing)
+- [License](#-license)
 
+## ✨ Features
 
-## Setup
+- Convert nested JSON to flat key-value pairs
+- Web interface for easy input and output
+- Error handling for invalid JSON input
+- Debug information for troubleshooting
 
-### Linux Setup
+## 🚀 Installation
 
-First, check your Linux distribution and install the necessary components.
-
-1. Check your Linux distribution:
-   ```bash
-   cat /etc/os-release
-   ```
-
-2. Based on your distribution, follow the appropriate instructions:
-
-   Ubuntu/Debian:
-   ```bash
-   sudo apt update
-   sudo apt install python3 python3-venv python3-pip
-   ```
-
-   Arch Linux:
-   ```bash
-   sudo pacman -Syu
-   sudo pacman -S python python-pip
-   ```
-
-   Fedora:
-   ```bash
-   sudo dnf update
-   sudo dnf install python3 python3-pip
-   ```
-
-   CentOS/RHEL:
-   ```bash
-   sudo yum update
-   sudo yum install python3 python3-pip
-   ```
-
-### Project Setup
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/NisaargPendal/json_to_flat_converter.git
+1. **Clone the repository:**
+   git clone https://github.com/yourusername/json-to-flat-converter.git
    
-   cd json-flattener
+   **Change the directory to :**
+    ```
+    cd json-to-flat-converter
+    ```
+2. **Create a virtual environment:**
+    ```
+    python3 -m venv venv
+    ```
+3. **Activate the virtual environment:**
+   - On Unix or MacOS:
+    ```     
+    source venv/bin/activate
+    ```   
+   - On Windows:
    ```
-
-2. Create a virtual environment:
-   ```bash
-   python3 -m venv venv
+    venv\Scripts\activate
    ```
+4. **Install required packages:**
+     ```
+    pip install flask
+    ```
+## 🖥️ Usage
 
-3. Activate the virtual environment:
-   ```bash
-   source venv/bin/activate
-   ```
+1. **Run the Flask application:**
+   python app.py
 
-4. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. **Open a web browser** and navigate to `http://localhost:5000`
 
-## Running the Application
+3. **Enter your JSON data** in the provided text area and click "Convert"
 
-1. Ensure you're in the project directory and your virtual environment is activated.
+4. The **flattened output** will be displayed below the input form
 
-2. Run the Flask application:
-   ```
-   python3 app.py
-   ```
+## 🔧 Troubleshooting
 
-3. Open a web browser and navigate to `http://127.0.0.1:5000/`.
+### ImportError: cannot import name 'url_quote' from 'werkzeug.urls'
 
-## Usage
+This error occurs due to a version mismatch between Flask and Werkzeug. To resolve:
 
-1. Enter your nested JSON in the "Input JSON" textarea.
-2. Click the "Flatten JSON" button.
-3. The flattened JSON will appear in the "Flattened Output" section.
-4. Use the "Copy" button to copy the flattened JSON to your clipboard.
+1. **Upgrade Flask and Werkzeug:**
+   pip install --upgrade flask werkzeug
 
-## Contributing
+2. If the error persists, **try installing specific versions:**
+   pip uninstall flask werkzeug
+   pip install flask==2.0.3 werkzeug==2.0.3
+
+3. If issues continue, **create a new virtual environment:**
+   deactivate
+   python3 -m venv new_venv
+   source new_venv/bin/activate
+   pip install flask
+
+4. As a last resort, **modify the Flask code:**
+   - Open `venv/lib/python3.12/site-packages/flask/helpers.py`
+   - Change `from werkzeug.urls import url_quote` to `from werkzeug.urls import quote as url_quote`
+
+### Other Troubleshooting Steps
+
+- **Check Flask and Werkzeug versions:**
+  pip freeze | grep -E "Flask|Werkzeug"
+- **Verify Python version:**
+  python --version
+- **Ensure the `templates` folder exists** and contains `index.html`
+
+## 📝 Code Explanation
+
+The main components of the application are:
+
+1. `json_to_flat_converter()`: Converts nested JSON to flat key-value pairs
+2. Flask route `/`: Handles both GET and POST requests
+3. Error handling for JSON parsing and template rendering
+4. Debug information gathering for troubleshooting
+
+Key points in the code:
+
+- Uses type hints for better code readability
+- Implements error handling for invalid JSON input
+- Includes debug information for easier troubleshooting
+
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Contact
+## 📄 License
 
-Created by Nisarg Pendal - feel free to contact me at nisargpendal@gmail.com!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<details>
+<summary>📌 Note for Developers</summary>
+
+When contributing to this project, please ensure that you:
+
+- Follow the existing code style
+- Write unit tests for new features
+- Update the README if you make significant changes
+
+Thank you for your contributions!
+</details>
